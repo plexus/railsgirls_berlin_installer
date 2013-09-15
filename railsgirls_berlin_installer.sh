@@ -79,8 +79,10 @@ install_prerequisites_osx() {
 check_version_managers() {
     [[ -z "$RVM_PLEASE" ]] || return 0
     for version_manager in rbenv chruby ; do
-        which $version_manager > /dev/null && fatal "You seem to have ${version_manager} installed, this "\
-                                                    "installer will use RVM. If you really want that, use 'RVM_PLEASE=yes ${0}'"
+        if which $version_manager > /dev/null ; then
+            fatal "You seem to have ${version_manager} installed, this "\
+                  "installer will use RVM. If you really want that, use 'RVM_PLEASE=yes ${0}'"
+        fi
     done
 }
 
