@@ -109,6 +109,7 @@ install_ruby() {
     info "Installing RVM, and Ruby ${RUBY_VERSION}, this can take a while."
     curl -L https://get.rvm.io | bash -s stable --ruby=$RUBY_VERSION --autolibs=enable
     source ~/.rvm/scripts/rvm
+    rvm use $RUBY_VERSION --default
     if [ -f "$HOME/.profile" ] && [ -f "$HOME/.bash_profile" ] && ! grep "source.*profile" "$HOME/.profile" ; then
         echo -e "#Added by Rails Girls Installer, so RVM loads correctly\nsource ~/.profile" >> $HOME/.bash_profile
     fi
@@ -129,7 +130,7 @@ install_rails() {
 }
 
 verify_installation() {
-    if [[ $(\rails --version) == $RAILS_VERSION ]] ; then
+    if [[ $(\rails --version) == "Rails $RAILS_VERSION" ]] ; then
         info "Rails installed and working, congratulations!"
     else
         if $? ; then
