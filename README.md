@@ -3,7 +3,7 @@
 This script can be used on Linux and OS X to install Ruby, Rails and some other dependencies like git or imagemagick. Open a terminal and copy-paste this line.
 
 ```sh
-bash < <(curl -L -s https://raw.github.com/plexus/rails_girls_berlin_installer/master/rails_girls_berlin_installer.sh)
+bash < <(curl -L -s https://raw.github.com/plexus/railsgirls_berlin_installer/master/railsgirls_berlin_installer.sh)
 ```
 
 Feedback is highly appreciated.
